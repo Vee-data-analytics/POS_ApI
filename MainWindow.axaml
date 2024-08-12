@@ -1,0 +1,316 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSApp"
+        mc:Ignorable="d"
+        x:Class="POSApp.MainWindow"
+        x:DataType="local:MainWindow"
+        Title="iFMS POS V1.00W [S]"
+        Background="#9ee5f6">
+
+    <Window.Styles>
+        <!-- Style for all functional buttons -->
+        <Style Selector="Button.icon">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0" Color="#3ab1c0"/>
+                        <GradientStop Offset="1" Color="Black"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="#1e6b75"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="Black" BlurRadius="5" OffsetX="2" OffsetY="2"/>
+            </Setter>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid>
+                            <Border CornerRadius="{TemplateBinding CornerRadius}">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                                        <GradientStop Offset="0" Color="#40FFFFFF"/>
+                                        <GradientStop Offset="0.5" Color="#10FFFFFF"/>
+                                        <GradientStop Offset="0.5" Color="#05FFFFFF"/>
+                                        <GradientStop Offset="1" Color="#00FFFFFF"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.icon:pointerover">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0" Color="#4ac2d2"/>
+                        <GradientStop Offset="1" Color="#3ab1c0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="Black" BlurRadius="8" OffsetX="3" OffsetY="3"/>
+            </Setter>
+          </Style>
+
+        <Style Selector="Button.icon:pressed">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0" Color="#2a919e"/>
+                        <GradientStop Offset="1" Color="#1e6b75"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="Black" BlurRadius="2" OffsetX="1" OffsetY="1"/>
+            </Setter>
+        </Style>
+
+        <!-- Style for Keypad Buttons -->
+        <Style Selector="Button.keypad">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#ff6800"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+
+        <!-- Styles for Nozzles -->
+        <Style Selector="TextBlock.nozzleHeader">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="TextBlock.nozzleContent">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Border.nozzleBorder">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+        <!-- DataGrid Styles --><!-- DataGrid Styles -->
+        <Style Selector="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#CCCCCC"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#CCCCCC"/>
+        </Style>
+        <Style Selector="DataGridColumnHeader">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        </Style>
+        <Style Selector="DataGridCell">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        </Style>
+
+    </Window.Styles>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Bar -->
+        <Border Grid.Row="0" Background="#008080" Padding="5">
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                    <TextBlock Foreground="White" VerticalAlignment="Center" Text="iFMSPOS V1.0  User : 1  Shift : "/>
+                    <TextBlock Foreground="White" VerticalAlignment="Center" Text=""/>
+                </StackPanel>
+                <TextBlock Name="DateTimeTextBlock" DockPanel.Dock="Right" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Text=""/>
+            </DockPanel>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+         <!-- Left Panel - Nozzles -->
+            <Border Grid.Column="0" Background="White" Margin="5" BorderBrush="Gray" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                     <DataGrid Grid.Row="1" Name="NozzleGrid"
+                            AutoGenerateColumns="False"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding Nozzles}">
+                          <DataGrid.Columns>
+                               <DataGridTextColumn Header="Attendant" Binding="{Binding AttendantName}" Width="*"/>
+                               <DataGridTextColumn Header="Total Unprocessed" Binding="{Binding TotalUnprocessed}" Width="*"/>
+                               <DataGridTemplateColumn Header="Nozzle" Width="*">
+                                   <DataGridTemplateColumn.CellTemplate>
+                                      <DataTemplate>
+                                          <StackPanel>
+                                              <Image Source="/Assets/icon/nozzel_up.png" Width="30" Height="30"/>
+                                              <TextBlock Text="{Binding NozzleName}" HorizontalAlignment="Center"/>
+                                              <TextBlock Text="{Binding FuelType}" HorizontalAlignment="Center"/>
+                                              <TextBlock Text="{Binding CurrentTransaction}" HorizontalAlignment="Center"/>
+                                              <TextBlock Text="{Binding LastTransaction}" HorizontalAlignment="Center"/>
+                                          </StackPanel>
+                                      </DataTemplate>
+                                  </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                         </DataGrid>
+                         </Grid>
+            </Border>
+
+            <!-- Right Panel - POS Keypad -->
+         <Border Grid.Column="1" Background="White" Margin="5" BorderBrush="Gray" BorderThickness="1">
+             <StackPanel>
+                    <TextBlock Text="POS" Foreground="White" Background="#D3D3D3" Padding="2"/>
+                    <UniformGrid Columns="3" Rows="4">
+                        <Button Classes="keypad" Content="7" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="8" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="9" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="4" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="5" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="6" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="1" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="2" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="3" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="CE" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="0" Click="OnButtonClick"/>
+                        <Button Classes="keypad" Content="Enter" Click="OnButtonClick"/>
+                    </UniformGrid>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Bottom Buttons -->
+        <UniformGrid Grid.Row="2" Columns="5" Rows="2" Margin="5">
+            <!-- Cash Draw-->
+            <Button Name="CashDrawButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/cash_drawer.png" Width="60" Height="60"/>
+                    <TextBlock Text="Cash Draw" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!-- Print Last Bill -->
+            <Button Name="PrintLastBillButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/slip.png" Width="60" Height="60"/>
+                    <TextBlock Text="Reprint Slip" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!-- Closed Bills -->
+            <Button Name="ClosedBillsButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/closed_bill.png" Width="60" Height="60"/>
+                    <TextBlock Text="Debtor Slips" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!-- Payment -->
+            <Button Name="PaymentButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/transact.png" Width="60" Height="60"/>
+                    <TextBlock Text="Payment" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!-- Cash Payout -->
+            <Button Name="CashPayoutButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/cash_payout.png" Width="60" Height="60"/>
+                    <TextBlock Text="Payout" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+
+            <!-- Cashier Menu -->
+            <Button Name="CashierMenuButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/cashier_menu.png" Width="60" Height="60"/>
+                    <TextBlock Text="Cashier Menu" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+
+
+            <!-- Close Shift -->
+            <Button Name="CloseShiftButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/pending.png" Width="60" Height="60"/>
+                    <TextBlock Text="Close Shift" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!-- Tank Levels -->
+            <Button Name="TankLevelsButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/oil-tank.png" Width="60" Height="60"/>
+                    <TextBlock Text="Tank Levels" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <!-- Admin -->
+            <Button Name="AdminButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/admin.png" Width="60" Height="60"/>
+                    <TextBlock Text="Settings" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+                        <!-- Admin -->
+            <Button Name="ExitButton" Classes="icon" Click="OnButtonClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="avares://POSApp/Assets/icon/exit.png" Width="60" Height="60"/>
+                    <TextBlock Text="Exit" Margin="8,0,0,0" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+Application starting...
+Building Avalonia app...
+App Initialize called.
+Avalonia setup completed.
+OnFrameworkInitializationCompleted called.
+An error occurred: System.ArgumentException: Unable to load bitmap from provided data
+   at Avalonia.Skia.ImmutableBitmap..ctor(Stream stream)
+   at Avalonia.Skia.PlatformRenderInterface.LoadBitmap(Stream stream)
+   at Avalonia.Media.Imaging.Bitmap..ctor(Stream stream)
+   at Avalonia.Markup.Xaml.Converters.BitmapTypeConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
+   at POSApp.MainWindow.!XamlIlPopulate(IServiceProvider, MainWindow) in /var/home/mo_vee/Documents/development/C#/POSApp-pretty/MainWindow.axaml:line 150
+   at POSApp.MainWindow.!XamlIlPopulateTrampoline(MainWindow)
+   at POSApp.MainWindow.InitializeComponent() in /var/home/mo_vee/Documents/development/C#/POSApp-pretty/MainWindow.axaml.cs:line 78
+   at POSApp.MainWindow..ctor() in /var/home/mo_vee/Documents/development/C#/POSApp-pretty/MainWindow.axaml.cs:line 21
+   at POSApp.App.OnFrameworkInitializationCompleted() in /var/home/mo_vee/Documents/development/C#/POSApp-pretty/App.axaml.cs:line 21
+   at Avalonia.AppBuilder.SetupUnsafe()
+   at Avalonia.AppBuilder.Setup()
+   at Avalonia.AppBuilder.SetupWithLifetime(IApplicationLifetime lifetime)
+   at Avalonia.ClassicDesktopStyleApplicationLifetimeExtensions.StartWithClassicDesktopLifetime(AppBuilder builder, String[] args, Action`1 lifetimeBuilder)
+   at POSApp.Program.Main(String[] args) in /var/home/mo_vee/Documents/development/C#/POSApp-pretty/Program.cs:line 16

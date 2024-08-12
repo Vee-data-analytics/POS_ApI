@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="POSApp.LoginWindow"
+        Title="Login" Width="800" Height="800"
+        Background="#779aa3">
+    <Window.Styles>
+        <!-- Style for TextBlocks -->
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,10,0,5"/>
+        </Style>
+
+        <!-- Style for TextBoxes -->
+        <Style Selector="TextBox">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="BorderBrush" Value="#cccccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+
+        <!-- Style for Login Button -->
+        <Style Selector="Button.login">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+
+        <!-- Style for Keyboard Buttons -->
+        <Style Selector="Button.keyboard">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="BorderBrush" Value="#1976D2"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Background="#779aa3" Padding="20" CornerRadius="0,0,10,10" BoxShadow="0 2 10 0 #15000000">
+            <StackPanel>
+                <TextBlock Text="Login" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+                <TextBlock Text="Username"/>
+                <TextBox Name="UsernameTextBox" Margin="0,5,0,15"/>
+                <TextBlock Text="Password"/>
+                <TextBox Name="PasswordTextBox" PasswordChar="•" Margin="0,5,0,15"/>
+                <Button Classes="login" Content="Login" Click="OnLoginClick" Margin="0,10"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" Name="Keyboard" RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*" Margin="10">
+            <!-- Keyboard buttons will be added here programmatically -->
+        </Grid>
+    </Grid>
+</Window>
