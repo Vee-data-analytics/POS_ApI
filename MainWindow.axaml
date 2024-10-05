@@ -148,6 +148,9 @@
 
     </Window.Styles>
 
+
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -166,14 +169,14 @@
             </DockPanel>
         </Border>
 
-        <!-- Main Content -->
+<!-- Main Content -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-         <!-- Left Panel - Nozzles -->
+            <!-- Left Panel - Nozzles DataGrid -->
             <Border Grid.Column="0" Background="White" Margin="5" BorderBrush="Gray" BorderThickness="1">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -181,35 +184,40 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                     <DataGrid Grid.Row="1" Name="NozzleGrid"
-                            AutoGenerateColumns="False"
-                            IsReadOnly="True"
-                            ItemsSource="{Binding Nozzles}">
-                          <DataGrid.Columns>
-                               <DataGridTextColumn Header="Attendant" Binding="{Binding AttendantName}" Width="*"/>
-                               <DataGridTextColumn Header="Total Unprocessed" Binding="{Binding TotalUnprocessed}" Width="*"/>
-                               <DataGridTemplateColumn Header="Nozzle" Width="*">
-                                   <DataGridTemplateColumn.CellTemplate>
-                                      <DataTemplate>
-                                          <StackPanel>
-                                              <Image Source="/Assets/icon/nozzel_up.png" Width="30" Height="30"/>
-                                              <TextBlock Text="{Binding NozzleName}" HorizontalAlignment="Center"/>
-                                              <TextBlock Text="{Binding FuelType}" HorizontalAlignment="Center"/>
-                                              <TextBlock Text="{Binding CurrentTransaction}" HorizontalAlignment="Center"/>
-                                              <TextBlock Text="{Binding LastTransaction}" HorizontalAlignment="Center"/>
-                                          </StackPanel>
-                                      </DataTemplate>
-                                  </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                         </DataGrid>
-                         </Grid>
+                    <TextBlock Grid.Row="0" Text="Nozzles" Background="#D3D3D3" Padding="5"/>
+                        <DataGrid Grid.Row="1" 
+                      ItemsSource="{Binding Nozzles}" 
+                      AutoGenerateColumns="False" 
+                      IsReadOnly="True"
+                      Name="TransactionsGrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nozzle" 
+                                        Binding="{Binding NozzleName}" 
+                                        Width="100"/>
+                    <DataGridTextColumn Header="Fuel Type" 
+                                        Binding="{Binding FuelType}" 
+                                        Width="100"/>
+                    <DataGridTextColumn Header="Attendant" 
+                                        Binding="{Binding AttendantName}" 
+                                        Width="120"/>
+                    <DataGridTextColumn Header="Liters" 
+                                        Binding="{Binding Liters}" 
+                                        Width="80"/>
+                    <DataGridTextColumn Header="Last Transaction" 
+                                        Binding="{Binding LastTransaction}" 
+                                        Width="150"/>
+                    <DataGridTextColumn Header="Total Unprocessed" 
+                                        Binding="{Binding TotalUnprocessed}" 
+                                        Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            </Grid>
             </Border>
 
             <!-- Right Panel - POS Keypad -->
-         <Border Grid.Column="1" Background="White" Margin="5" BorderBrush="Gray" BorderThickness="1">
-             <StackPanel>
-                    <TextBlock Text="POS" Foreground="White" Background="#D3D3D3" Padding="2"/>
+            <Border Grid.Column="1" Background="White" Margin="5" BorderBrush="Gray" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="POS" Background="#D3D3D3" Padding="2"/>
                     <UniformGrid Columns="3" Rows="4">
                         <Button Classes="keypad" Content="7" Click="OnButtonClick"/>
                         <Button Classes="keypad" Content="8" Click="OnButtonClick"/>

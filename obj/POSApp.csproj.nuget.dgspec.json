@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/var/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj": {}
+    "/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj": {}
   },
   "projects": {
-    "/var/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj": {
+    "/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/var/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj",
+        "projectUniqueName": "/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj",
         "projectName": "POSApp",
-        "projectPath": "/var/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj",
+        "projectPath": "/home/mo_vee/Documents/development/C#/POSApp-pretty/POSApp.csproj",
         "packagesPath": "/home/mo_vee/.nuget/packages/",
-        "outputPath": "/var/home/mo_vee/Documents/development/C#/POSApp-pretty/obj/",
+        "outputPath": "/home/mo_vee/Documents/development/C#/POSApp-pretty/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mo_vee/.nuget/NuGet/NuGet.Config"
@@ -40,15 +40,15 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.0.11, )"
+              "version": "[11.1.3, )"
             },
             "Avalonia.Controls.DataGrid": {
               "target": "Package",
-              "version": "[11.0.11, )"
+              "version": "[11.1.3, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
-              "version": "[11.0.11, )"
+              "version": "[11.1.3, )"
             },
             "Avalonia.Diagnostics": {
               "target": "Package",
@@ -56,11 +56,11 @@
             },
             "Avalonia.Fonts.Inter": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[11.1.3, )"
             },
             "Avalonia.Themes.Fluent": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[11.1.3, )"
             },
             "Material.Avalonia": {
               "target": "Package",
@@ -70,13 +70,25 @@
               "target": "Package",
               "version": "[2.1.10, )"
             },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "NLog": {
               "target": "Package",
               "version": "[5.3.2, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "ReactiveUI": {
               "target": "Package",
               "version": "[20.1.1, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
             },
             "System.Reactive": {
               "target": "Package",
@@ -94,12 +106,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
